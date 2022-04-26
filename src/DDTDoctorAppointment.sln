@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.Migrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Persistence.EF", "DDTDoctorAppointment.Persistence.EF\DDTDoctorAppointment.Persistence.EF.csproj", "{738C5BE3-A4F0-4117-A3A9-64B66A36718B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.RestAPI", "DDTDoctorAppointment.RestAPI\DDTDoctorAppointment.RestAPI.csproj", "{356C2071-F8A8-49A3-BC9F-A159C788AD4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{98E947A5-6DF0-42C1-A526-E3C5A01A7FEF} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{738C5BE3-A4F0-4117-A3A9-64B66A36718B} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
+		{356C2071-F8A8-49A3-BC9F-A159C788AD4C} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F82904D8-9D4F-4E52-8790-1D25246E635F}

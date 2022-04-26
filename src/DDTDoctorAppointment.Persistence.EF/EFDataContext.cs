@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DDTDoctorAppointment.Entities;
+using DDTDoctorAppointment.Persistence.EF.Doctors;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +24,11 @@ namespace DDTDoctorAppointment.Persistence.EF
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly
-                (typeof(CategoryEntityMap).Assembly);
+                (typeof(DoctorEntityMap).Assembly);
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Book> Books { get; set; }
+        public DbSet<Doctor> Categories { get; set; }
+        public DbSet<Patient> Books { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }
