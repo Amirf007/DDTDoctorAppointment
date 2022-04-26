@@ -42,14 +42,16 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
                 .Contain(_ => _.NationalCode == dto.NationalCode);
         }
 
-        //[Fact]
-        //public void Add_throw_DoctorIsAlreadyExistException_When_doctor_registered_with_duplicate_nationalcode()
-        //{
-        //    var dummynationalcode = "123";
+        [Fact]
+        public void Add_throw_DoctorIsAlreadyExistException_When_doctor_registered_with_duplicate_nationalcode()
+        {
+            AddDoctorDto dto = GenerateAddDoctorDto();
 
-        //    //Action Expected = () => _sut.Update(dummyCategoryId, dto);
-        //    //Expected.Should().ThrowExactly<CategoryNotFoundException>();
-        //}
+            _sut.Add(dto);
+
+            Action Expected = () => _sut.Add(dto);
+            Expected.Should().ThrowExactly<DoctorIsAlreadyExistException>();
+        }
 
 
         private static AddDoctorDto GenerateAddDoctorDto()

@@ -21,5 +21,11 @@ namespace DDTDoctorAppointment.Persistence.EF.Doctors
         {
             _dataContext.Doctors.Add(doctor);
         }
+
+        public bool IsExistNationalCode(string nationalCode, int id)
+        {
+            return _dataContext.Doctors
+                .Any(_ => _.NationalCode == nationalCode && _.Id != id);
+        }
     }
 }

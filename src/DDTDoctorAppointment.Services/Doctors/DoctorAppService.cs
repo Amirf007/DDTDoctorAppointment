@@ -22,17 +22,29 @@ namespace DDTDoctorAppointment.Services.Doctors
 
         public void Add(AddDoctorDto dto)
         {
-            var doctor = new Doctor
+            Doctor doctor = GenerateDoctor(dto);
+
+            var isDoctorExist = _repository
+               .IsExistNationalCode(doctor.NationalCode, doctor.Id);
+            if (isDoctorExist)
+            {
+                throw new DoctorIsAlreadyExistException();
+            }
+
+            _repository.Add(doctor);
+
+            _unitOfWork.Commit();
+        }
+
+        private static Doctor GenerateDoctor(AddDoctorDto dto)
+        {
+            return new Doctor
             {
                 NationalCode = dto.NationalCode,
                 Name = dto.Name,
                 LastName = dto.LastName,
                 Specialty = dto.Specialty,
             };
-
-            _repository.Add(doctor);
-
-            _unitOfWork.Commit();
         }
     }
 }
