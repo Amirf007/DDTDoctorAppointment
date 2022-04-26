@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DDTDoctorAppointment.Entities\DDTDoctorAppointment.Entities.csproj" />
+    <ProjectReference Include="..\DDTDoctorAppointment.Services\DDTDoctorAppointment.Services.csproj" />
   </ItemGroup>
 
 </Project>

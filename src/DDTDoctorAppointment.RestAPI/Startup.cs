@@ -2,6 +2,7 @@ using Autofac;
 using DDDoctorAppointment.Infrastructure.Application;
 using DDTDoctorAppointment.Persistence.EF;
 using DDTDoctorAppointment.Persistence.EF.Doctors;
+using DDTDoctorAppointment.Services.Doctors;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

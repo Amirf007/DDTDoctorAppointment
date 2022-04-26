@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDoctorAppointment.Infrast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.Migrations", "DDTDoctorAppointment.Migrations\DDTDoctorAppointment.Migrations.csproj", "{87443FDE-6CC9-46C8-AE67-D6E6043B8991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Persistence.EF", "DDTDoctorAppointment.Persistence.EF\DDTDoctorAppointment.Persistence.EF.csproj", "{738C5BE3-A4F0-4117-A3A9-64B66A36718B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.Persistence.EF", "DDTDoctorAppointment.Persistence.EF\DDTDoctorAppointment.Persistence.EF.csproj", "{738C5BE3-A4F0-4117-A3A9-64B66A36718B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.RestAPI", "DDTDoctorAppointment.RestAPI\DDTDoctorAppointment.RestAPI.csproj", "{356C2071-F8A8-49A3-BC9F-A159C788AD4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.RestAPI", "DDTDoctorAppointment.RestAPI\DDTDoctorAppointment.RestAPI.csproj", "{356C2071-F8A8-49A3-BC9F-A159C788AD4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Services", "DDTDoctorAppointment.Services\DDTDoctorAppointment.Services.csproj", "{EE091913-66F2-45C3-AA2E-AC2D41829A02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{356C2071-F8A8-49A3-BC9F-A159C788AD4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE091913-66F2-45C3-AA2E-AC2D41829A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE091913-66F2-45C3-AA2E-AC2D41829A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE091913-66F2-45C3-AA2E-AC2D41829A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE091913-66F2-45C3-AA2E-AC2D41829A02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{738C5BE3-A4F0-4117-A3A9-64B66A36718B} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{356C2071-F8A8-49A3-BC9F-A159C788AD4C} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
+		{EE091913-66F2-45C3-AA2E-AC2D41829A02} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F82904D8-9D4F-4E52-8790-1D25246E635F}

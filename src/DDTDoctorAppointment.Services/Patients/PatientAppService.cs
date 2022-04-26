@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDTDoctorAppointment.Persistence.EF.Patients
+namespace DDTDoctorAppointment.Services.Patients
 {
-    public class EFPatientRepository : PatientRepository
+    public class PatientAppService : PatientService
     {
 
     }
