@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DDDoctorAppointment.Infrastructure\DDDoctorAppointment.Infrastructure.csproj" />
+    <ProjectReference Include="..\DDTDoctorAppointment.Entities\DDTDoctorAppointment.Entities.csproj" />
   </ItemGroup>
 
 </Project>

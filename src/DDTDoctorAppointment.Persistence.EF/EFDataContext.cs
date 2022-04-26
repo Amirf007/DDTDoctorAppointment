@@ -27,8 +27,8 @@ namespace DDTDoctorAppointment.Persistence.EF
                 (typeof(DoctorEntityMap).Assembly);
         }
 
-        public DbSet<Doctor> Categories { get; set; }
-        public DbSet<Patient> Books { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Patient> Patients { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
     }
 }

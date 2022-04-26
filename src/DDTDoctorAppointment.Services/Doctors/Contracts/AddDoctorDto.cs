@@ -8,5 +8,9 @@ namespace DDTDoctorAppointment.Services.Doctors.Contracts
 {
     public class AddDoctorDto
     {
+        public string NationalCode { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Specialty { get; set; }
     }
 }
