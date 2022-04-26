@@ -10,5 +10,6 @@ namespace DDTDoctorAppointment.Services.Doctors.Contracts
     public interface DoctorService : Service
     {
         void Add(AddDoctorDto dto);
+        void Update(int id, UpdateDoctorDto dto);
     }
 }

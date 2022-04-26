@@ -1,5 +1,6 @@
 ﻿using DDDoctorAppointment.Infrastructure.Application;
 using DDDoctorAppointment.Infrastructure.Test;
+using DDTDoctorAppointment.Entities;
 using DDTDoctorAppointment.Persistence.EF;
 using DDTDoctorAppointment.Persistence.EF.Doctors;
 using DDTDoctorAppointment.Services.Doctors;
@@ -53,6 +54,44 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             Expected.Should().ThrowExactly<DoctorIsAlreadyExistException>();
         }
 
+        [Fact]
+        public void Update_update_doctor_properly()
+        {
+            Doctor doctor = GenerateDoctor();
+            _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
+
+            UpdateDoctorDto dto = GenerateUpdareDoctorDto();
+
+            _sut.Update(doctor.Id, dto);
+
+            var Expected = _dataContext.Doctors.FirstOrDefault(_ => _.Id == doctor.Id);
+            Expected.Name.Should().Be(dto.Name);
+            Expected.LastName.Should().Be(dto.LastName);
+            Expected.NationalCode.Should().Be(dto.NationalCode);
+            Expected.Specialty.Should().Be(dto.Specialty);
+        }
+
+        private static UpdateDoctorDto GenerateUpdareDoctorDto()
+        {
+            return new UpdateDoctorDto
+            {
+                NationalCode = "245",
+                Name = "ali",
+                LastName = "zare",
+                Specialty = "heart"
+            };
+        }
+
+        private static Doctor GenerateDoctor()
+        {
+            return new Doctor
+            {
+                NationalCode = "123",
+                Name = "amir",
+                LastName = "bahme",
+                Specialty = "heart"
+            };
+        }
 
         private static AddDoctorDto GenerateAddDoctorDto()
         {

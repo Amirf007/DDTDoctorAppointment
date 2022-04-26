@@ -46,5 +46,17 @@ namespace DDTDoctorAppointment.Services.Doctors
                 Specialty = dto.Specialty,
             };
         }
+
+        public void Update(int id, UpdateDoctorDto dto)
+        {
+            var doctor = _repository.Getbyid(id);
+
+            doctor.Name = dto.Name;
+            doctor.LastName = dto.LastName;
+            doctor.NationalCode = dto.NationalCode;
+            doctor.Specialty = dto.Specialty;
+
+            _unitOfWork.Commit();
+        }
     }
 }

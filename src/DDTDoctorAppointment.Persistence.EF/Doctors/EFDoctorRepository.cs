@@ -22,6 +22,11 @@ namespace DDTDoctorAppointment.Persistence.EF.Doctors
             _dataContext.Doctors.Add(doctor);
         }
 
+        public Doctor Getbyid(int id)
+        {
+           return _dataContext.Doctors.Find(id);
+        }
+
         public bool IsExistNationalCode(string nationalCode, int id)
         {
             return _dataContext.Doctors

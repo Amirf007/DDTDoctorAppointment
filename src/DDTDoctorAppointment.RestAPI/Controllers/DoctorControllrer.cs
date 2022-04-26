@@ -18,5 +18,11 @@ namespace DDTDoctorAppointment.RestAPI.Controllers
         {
             _service.Add(dto);
         }
+
+        [HttpPut("{id}")]
+        public void Update(int id,UpdateDoctorDto dto)
+        {
+            _service.Update(id, dto);
+        }
     }
 }

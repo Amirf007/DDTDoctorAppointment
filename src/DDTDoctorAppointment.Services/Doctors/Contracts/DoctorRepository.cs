@@ -12,5 +12,6 @@ namespace DDTDoctorAppointment.Services.Doctors.Contracts
     {
         void Add(Doctor doctor);
         bool IsExistNationalCode(string nationalCode, int id);
+        Doctor Getbyid(int id);
     }
 }
