@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E182948B-682
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A68AA53E-34BD-4807-93B4-5223437476E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Entities", "DDTDoctorAppointment.Entities\DDTDoctorAppointment.Entities.csproj", "{E03419FD-CBD1-476E-8733-24A18DE5FA71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.Entities", "DDTDoctorAppointment.Entities\DDTDoctorAppointment.Entities.csproj", "{E03419FD-CBD1-476E-8733-24A18DE5FA71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDoctorAppointment.Infrastructure", "DDDoctorAppointment.Infrastructure\DDDoctorAppointment.Infrastructure.csproj", "{98E947A5-6DF0-42C1-A526-E3C5A01A7FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDoctorAppointment.Infrastructure", "DDDoctorAppointment.Infrastructure\DDDoctorAppointment.Infrastructure.csproj", "{98E947A5-6DF0-42C1-A526-E3C5A01A7FEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Migrations", "DDTDoctorAppointment.Migrations\DDTDoctorAppointment.Migrations.csproj", "{87443FDE-6CC9-46C8-AE67-D6E6043B8991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDTDoctorAppointment.Migrations", "DDTDoctorAppointment.Migrations\DDTDoctorAppointment.Migrations.csproj", "{87443FDE-6CC9-46C8-AE67-D6E6043B8991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTDoctorAppointment.Persistence.EF", "DDTDoctorAppointment.Persistence.EF\DDTDoctorAppointment.Persistence.EF.csproj", "{738C5BE3-A4F0-4117-A3A9-64B66A36718B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738C5BE3-A4F0-4117-A3A9-64B66A36718B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{E03419FD-CBD1-476E-8733-24A18DE5FA71} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{98E947A5-6DF0-42C1-A526-E3C5A01A7FEF} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 		{87443FDE-6CC9-46C8-AE67-D6E6043B8991} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
+		{738C5BE3-A4F0-4117-A3A9-64B66A36718B} = {E182948B-6829-4D22-92E8-31F977F5DCAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F82904D8-9D4F-4E52-8790-1D25246E635F}
