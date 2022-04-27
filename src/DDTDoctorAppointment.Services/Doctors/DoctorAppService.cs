@@ -50,6 +50,10 @@ namespace DDTDoctorAppointment.Services.Doctors
         public void Update(int id, UpdateDoctorDto dto)
         {
             var doctor = _repository.Getbyid(id);
+            if (doctor == null)
+            {
+                throw new DoctorNotFoundException();
+            }
 
             doctor.Name = dto.Name;
             doctor.LastName = dto.LastName;

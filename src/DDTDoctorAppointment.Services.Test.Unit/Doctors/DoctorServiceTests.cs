@@ -71,6 +71,17 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             Expected.Specialty.Should().Be(dto.Specialty);
         }
 
+        [Fact]
+        public void Update_throw_DoctorNotFoundException_when_doctor_with_given_id_that_not_exist()
+        {
+            var dummyid = 100;
+
+            UpdateDoctorDto dto = GenerateUpdareDoctorDto();
+
+            Action Expected = () => _sut.Update(dummyid,dto);
+            Expected.Should().ThrowExactly<DoctorNotFoundException>();
+        }
+
         private static UpdateDoctorDto GenerateUpdareDoctorDto()
         {
             return new UpdateDoctorDto
