@@ -56,5 +56,10 @@ namespace DDTDoctorAppointment.Services.Patients
 
             return patient;
         }
+
+        public IList<GetPatientDto> Getall()
+        {
+           return _repository.Getall();
+        }
     }
 }

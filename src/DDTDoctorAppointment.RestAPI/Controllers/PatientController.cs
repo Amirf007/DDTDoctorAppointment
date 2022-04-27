@@ -1,5 +1,6 @@
 ﻿using DDTDoctorAppointment.Services.Patients.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace DDTDoctorAppointment.RestAPI.Controllers
 {
@@ -24,6 +25,12 @@ namespace DDTDoctorAppointment.RestAPI.Controllers
         public GetPatientDto GetPatient(int id)
         {
            return _service.GetPatient(id);
+        }
+
+        [HttpGet]
+        public IList<GetPatientDto> Getall()
+        {
+            return _service.Getall();
         }
     }
 }
