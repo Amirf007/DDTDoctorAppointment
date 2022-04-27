@@ -143,6 +143,15 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             Expected.Specialty.Should().Be(doctor.Specialty);
         }
 
+        [Fact]
+        public void GetDoctor_throw_DoctorNotFoundException_when_doctor_that_you_want_return_given_id_that_not_exist()
+        {
+            var dummyid = 102;
+
+            Action Expected = () => _sut.GetDoctor(dummyid);
+            Expected.Should().ThrowExactly<DoctorNotFoundException>();
+        }
+
         private void CreateDoctorsInDataBase()
         {
             var doctors = new List<Doctor>

@@ -87,7 +87,13 @@ namespace DDTDoctorAppointment.Services.Doctors
 
         public GetDoctorDto GetDoctor(int id)
         {
-           return _repository.GetDoctor(id);
+           var doctor = _repository.GetDoctor(id);
+            if (doctor==null)
+            {
+                throw new DoctorNotFoundException();
+            }
+
+            return doctor;
         }
     }
 }

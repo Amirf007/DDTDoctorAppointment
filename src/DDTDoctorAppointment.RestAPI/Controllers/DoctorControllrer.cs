@@ -37,5 +37,11 @@ namespace DDTDoctorAppointment.RestAPI.Controllers
         {
             return _service.Getall();
         }
+
+        [HttpGet("{id}")]
+        public GetDoctorDto GetDoctor(int id)
+        {
+            return _service.GetDoctor(id);
+        }
     }
 }
