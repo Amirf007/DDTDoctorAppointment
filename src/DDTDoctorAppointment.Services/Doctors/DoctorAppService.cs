@@ -70,6 +70,10 @@ namespace DDTDoctorAppointment.Services.Doctors
         public void Delete(int id)
         {
             var doctor = _repository.Getbyid(id);
+            if (doctor==null)
+            {
+                throw new DoctorNotFoundException();
+            }
 
             _repository.Remove(doctor);
 

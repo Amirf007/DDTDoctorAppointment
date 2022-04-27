@@ -106,6 +106,15 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             _dataContext.Doctors.Should().HaveCount(0);
         }
 
+        [Fact]
+        public void Delete_throw_DoctorNotFoundException_when_doctor_with_given_id_that_not_exist()
+        {
+           var dummyid = 100;
+
+            Action Expected = () => _sut.Delete(dummyid);
+            Expected.Should().ThrowExactly<DoctorNotFoundException>();
+        }
+
         private static UpdateDoctorDto GenerateUpdareDoctorDto()
         {
             return new UpdateDoctorDto
