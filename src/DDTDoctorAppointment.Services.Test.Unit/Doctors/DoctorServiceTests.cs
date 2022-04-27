@@ -89,7 +89,11 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             var doctor = GenerateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
+            var doctorwithduplicatenationalcode = GenerateDoctor();
+            _dataContext.Manipulate(_ => _.Doctors.Add(doctorwithduplicatenationalcode));
+
             UpdateDoctorDto dto = GenerateUpdareDoctorDto();
+            dto.NationalCode = doctor.NationalCode;
 
             Action Expected = () => _sut.Update(doctor.Id, dto);
             Expected.Should().ThrowExactly<DoctorIsAlreadyExistException>();
@@ -113,6 +117,39 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
 
             Action Expected = () => _sut.Delete(dummyid);
             Expected.Should().ThrowExactly<DoctorNotFoundException>();
+        }
+
+        [Fact]
+        public void Getall_return_all_doctors_properly()
+        {
+            CreateDoctorsInDataBase();
+
+            var Expected = _sut.Getall();
+            Expected.Should().HaveCount(2);
+            Expected.Should().Contain(_ => _.NationalCode == "125");
+            Expected.Should().Contain(_ => _.NationalCode == "458");
+        }
+
+        private void CreateDoctorsInDataBase()
+        {
+            var doctors = new List<Doctor>
+            {
+                new Doctor
+                {
+                    Name = "amir",
+                    LastName = "zare",
+                    NationalCode = "125",
+                    Specialty = "heart",
+                },
+                new Doctor
+                {
+                    Name = "abolfazl",
+                    LastName = "bahme",
+                    NationalCode = "458",
+                    Specialty = "heart",
+                }
+            };
+            _dataContext.Manipulate(_ => _.Doctors.AddRange(doctors));
         }
 
         private static UpdateDoctorDto GenerateUpdareDoctorDto()

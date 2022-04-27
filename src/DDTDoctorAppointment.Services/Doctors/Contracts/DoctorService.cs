@@ -12,5 +12,6 @@ namespace DDTDoctorAppointment.Services.Doctors.Contracts
         void Add(AddDoctorDto dto);
         void Update(int id, UpdateDoctorDto dto);
         void Delete(int id);
+        void Getall();
     }
 }

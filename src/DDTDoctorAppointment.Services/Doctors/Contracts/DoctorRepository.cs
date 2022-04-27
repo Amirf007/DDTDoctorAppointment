@@ -14,5 +14,6 @@ namespace DDTDoctorAppointment.Services.Doctors.Contracts
         bool IsExistNationalCode(string nationalCode, int id);
         Doctor Getbyid(int id);
         void Remove(Doctor doctor);
+        IList<GetDoctorDto> Getall();
     }
 }
