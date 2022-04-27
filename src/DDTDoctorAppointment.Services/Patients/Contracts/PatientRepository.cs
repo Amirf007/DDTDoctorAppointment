@@ -11,5 +11,6 @@ namespace DDTDoctorAppointment.Services.Patients.Contracts
     public interface PatientRepository : Repository
     {
         void Add(Patient patient);
+        bool IsExistNationalCode(string nationalCode, int id);
     }
 }

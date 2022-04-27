@@ -1,4 +1,5 @@
-﻿using DDTDoctorAppointment.Services.Patients.Contracts;
+﻿using DDTDoctorAppointment.Entities;
+using DDTDoctorAppointment.Services.Patients.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,22 @@ namespace DDTDoctorAppointment.Persistence.EF.Patients
 {
     public class EFPatientRepository : PatientRepository
     {
-        private EFDataContext dataContext;
+        private EFDataContext _dataContext;
 
         public EFPatientRepository(EFDataContext dataContext)
         {
-            this.dataContext = dataContext;
+            _dataContext = dataContext;
+        }
+
+        public void Add(Patient patient)
+        {
+            _dataContext.Patients.Add(patient);
+        }
+
+        public bool IsExistNationalCode(string nationalCode, int id)
+        {
+            return _dataContext.Patients
+                .Any(_ => _.NationalCode == nationalCode && _.Id != id);
         }
     }
 }

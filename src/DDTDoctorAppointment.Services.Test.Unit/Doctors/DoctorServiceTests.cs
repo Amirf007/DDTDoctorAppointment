@@ -58,7 +58,7 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
         [Fact]
         public void Update_update_doctor_properly()
         {
-            Doctor doctor = DoctorFactory.;
+            Doctor doctor = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
             UpdateDoctorDto dto = GenerateUpdareDoctorDto();
@@ -87,10 +87,10 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
         [Fact]
         public void Update_throw_DoctorIsAlreadyExistException_When_doctor_update_with_duplicate_nationalcode_with_different_id()
         {
-            var doctor = GenerateDoctor();
+            var doctor = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
-            var doctorwithduplicatenationalcode = GenerateDoctor();
+            var doctorwithduplicatenationalcode = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctorwithduplicatenationalcode));
 
             UpdateDoctorDto dto = GenerateUpdareDoctorDto();
@@ -103,7 +103,7 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
         [Fact]
         public void Delete_delete_doctor_properly()
         {
-            Doctor doctor = GenerateDoctor();
+            Doctor doctor = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
             _sut.Delete(doctor.Id);
@@ -134,7 +134,7 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
         [Fact]
         public void GetDoctor_return_doctor_with_Id()
         {
-            var doctor = GenerateDoctor();
+            var doctor = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
             var Expected = _sut.GetDoctor(doctor.Id);
@@ -182,17 +182,6 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
                 NationalCode = "245",
                 Name = "ali",
                 LastName = "zare",
-                Specialty = "heart"
-            };
-        }
-
-        private static Doctor GenerateDoctor()
-        {
-            return new Doctor
-            {
-                NationalCode = "123",
-                Name = "amir",
-                LastName = "bahme",
                 Specialty = "heart"
             };
         }

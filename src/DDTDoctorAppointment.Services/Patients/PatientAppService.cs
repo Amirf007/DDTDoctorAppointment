@@ -23,6 +23,12 @@ namespace DDTDoctorAppointment.Services.Patients
         public void Add(AddPatientDto dto)
         {
             Patient patient = GeneratePatient(dto);
+            var isPatientExist = _repository
+               .IsExistNationalCode(patient.NationalCode, patient.Id);
+            if (isPatientExist)
+            {
+                throw new PatientIsAlreadyExistException();
+            }
 
             _repository.Add(patient);
 
