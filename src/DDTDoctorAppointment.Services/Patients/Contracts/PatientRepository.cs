@@ -14,5 +14,6 @@ namespace DDTDoctorAppointment.Services.Patients.Contracts
         bool IsExistNationalCode(string nationalCode, int id);
         GetPatientDto GetPatient(int id);
         IList<GetPatientDto> Getall();
+        Patient Getbyid(int id);
     }
 }

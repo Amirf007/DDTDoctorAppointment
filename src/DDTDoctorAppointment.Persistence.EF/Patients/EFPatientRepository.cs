@@ -34,6 +34,11 @@ namespace DDTDoctorAppointment.Persistence.EF.Patients
                   }).ToList();
         }
 
+        public Patient Getbyid(int id)
+        {
+            return _dataContext.Patients.Find(id);
+        }
+
         public GetPatientDto GetPatient(int id)
         {
             return _dataContext.Patients.Where(_ => _.Id == id).Select(_ => new GetPatientDto

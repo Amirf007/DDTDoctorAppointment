@@ -61,5 +61,25 @@ namespace DDTDoctorAppointment.Services.Patients
         {
            return _repository.Getall();
         }
+
+        public void Update(int id, UpdatePatientDto dto)
+        {
+            var patient = _repository.Getbyid(id);
+            
+            if (patient==null)
+            {
+                throw new PatientNotFoundException();
+            }
+            else if ( _repository.IsExistNationalCode(dto.NationalCode, patient.Id))
+            {
+                throw new PatientIsAlreadyExistException();
+            }
+
+            patient.Name = dto.Name;
+            patient.LastName = dto.LastName;
+            patient.NationalCode = dto.NationalCode;
+
+            _unitOfWork.Commit();
+        }
     }
 }
