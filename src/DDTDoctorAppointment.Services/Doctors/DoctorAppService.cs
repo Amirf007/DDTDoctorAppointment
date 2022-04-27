@@ -79,5 +79,15 @@ namespace DDTDoctorAppointment.Services.Doctors
 
             _unitOfWork.Commit();
         }
+
+        public IList<GetDoctorDto> Getall()
+        {
+           return _repository.Getall();
+        }
+
+        public GetDoctorDto GetDoctor(int id)
+        {
+           return _repository.GetDoctor(id);
+        }
     }
 }

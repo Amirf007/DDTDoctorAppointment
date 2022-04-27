@@ -130,6 +130,19 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             Expected.Should().Contain(_ => _.NationalCode == "458");
         }
 
+        [Fact]
+        public void GetDoctor_return_doctor_with_Id()
+        {
+            var doctor = GenerateDoctor();
+            _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
+
+            var Expected = _sut.GetDoctor(doctor.Id);
+            Expected.NationalCode.Should().Be(doctor.NationalCode);
+            Expected.Name.Should().Be(doctor.Name);
+            Expected.LastName.Should().Be(doctor.LastName);
+            Expected.Specialty.Should().Be(doctor.Specialty);
+        }
+
         private void CreateDoctorsInDataBase()
         {
             var doctors = new List<Doctor>
