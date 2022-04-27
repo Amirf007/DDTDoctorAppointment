@@ -54,7 +54,10 @@ namespace DDTDoctorAppointment.Services.Doctors
             {
                 throw new DoctorNotFoundException();
             }
-            else if (_repository.IsExistNationalCode(dto.NationalCode, doctor.Id))
+
+            var IsExist = _repository
+                .IsExistNationalCode(dto.NationalCode, doctor.Id);
+            if (IsExist)
             {
                 throw new DoctorIsAlreadyExistException();
             }

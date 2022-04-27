@@ -65,12 +65,14 @@ namespace DDTDoctorAppointment.Services.Patients
         public void Update(int id, UpdatePatientDto dto)
         {
             var patient = _repository.Getbyid(id);
-            
             if (patient==null)
             {
                 throw new PatientNotFoundException();
             }
-            else if ( _repository.IsExistNationalCode(dto.NationalCode, patient.Id))
+
+            var IsExist = _repository
+                .IsExistNationalCode(dto.NationalCode, patient.Id);
+            if (IsExist)
             {
                 throw new PatientIsAlreadyExistException();
             }
@@ -78,6 +80,19 @@ namespace DDTDoctorAppointment.Services.Patients
             patient.Name = dto.Name;
             patient.LastName = dto.LastName;
             patient.NationalCode = dto.NationalCode;
+
+            _unitOfWork.Commit();
+        }
+
+        public void Delete(int id)
+        {
+           var patient = _repository.Getbyid(id);
+            if (patient==null)
+            {
+                throw new PatientNotFoundException();
+            }
+
+            _repository.Remove(patient);
 
             _unitOfWork.Commit();
         }

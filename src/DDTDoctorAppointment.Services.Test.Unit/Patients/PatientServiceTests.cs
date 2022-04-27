@@ -49,13 +49,17 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
         {
             AddPatientDto dto = GenerateAddPatientDto();
 
-            var patientwithduplicatenationalcode = PatientFactory.CreatePatient();
-            patientwithduplicatenationalcode.NationalCode = dto.NationalCode;
-            _dataContext.Manipulate(_ => _.Patients.Add(patientwithduplicatenationalcode));
+            var patientwithduplicatenationalcode
+                = PatientFactory.CreatePatient();
+            patientwithduplicatenationalcode.NationalCode
+                = dto.NationalCode;
+            _dataContext.Manipulate
+                (_ => _.Patients.Add(patientwithduplicatenationalcode));
 
             Action Expected = () => _sut.Add(dto);
 
-            Expected.Should().ThrowExactly<PatientIsAlreadyExistException>();
+            Expected.Should()
+                .ThrowExactly<PatientIsAlreadyExistException>();
         }
 
         [Fact]
@@ -133,14 +137,37 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
             var patient = PatientFactory.CreatePatient();
             _dataContext.Manipulate(_ => _.Patients.Add(patient));
 
-            var patientwithduplicatenationalcode = PatientFactory.CreatePatient();
-            _dataContext.Manipulate(_ => _.Patients.Add(patientwithduplicatenationalcode));
+            var patientwithduplicatenationalcode =
+                PatientFactory.CreatePatient();
+            _dataContext.Manipulate
+                (_ => _.Patients.Add(patientwithduplicatenationalcode));
 
             UpdatePatientDto dto = GenerateUpdatePatientDto();
             dto.NationalCode = patient.NationalCode;
 
             Action Expected = () => _sut.Update(patient.Id, dto);
-            Expected.Should().ThrowExactly<PatientIsAlreadyExistException>();
+            Expected.Should()
+                .ThrowExactly<PatientIsAlreadyExistException>();
+        }
+
+        [Fact]
+        public void Delete_delete_patient_properly()
+        {
+            Patient patient = PatientFactory.CreatePatient();
+            _dataContext.Manipulate(_ => _.Patients.Add(patient));
+
+            _sut.Delete(patient.Id);
+
+            _dataContext.Patients.Should().HaveCount(0);
+        }
+
+        [Fact]
+        public void Delete_throw_PatientNotFoundException_when_patient_with_given_id_that_not_exist()
+        {
+            var dummyid = 100;
+
+            Action Expected = () => _sut.Delete(dummyid);
+            Expected.Should().ThrowExactly<PatientNotFoundException>();
         }
 
         private void GeneratePatientsInDataBase()

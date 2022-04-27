@@ -15,5 +15,6 @@ namespace DDTDoctorAppointment.Services.Patients.Contracts
         GetPatientDto GetPatient(int id);
         IList<GetPatientDto> Getall();
         Patient Getbyid(int id);
+        void Remove(Patient patient);
     }
 }

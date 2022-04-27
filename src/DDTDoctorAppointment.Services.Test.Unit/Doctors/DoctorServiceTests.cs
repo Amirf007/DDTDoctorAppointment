@@ -52,7 +52,8 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             _sut.Add(dto);
 
             Action Expected = () => _sut.Add(dto);
-            Expected.Should().ThrowExactly<DoctorIsAlreadyExistException>();
+            Expected.Should()
+                .ThrowExactly<DoctorIsAlreadyExistException>();
         }
 
         [Fact]
@@ -90,14 +91,17 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
             var doctor = DoctorFactory.CreateDoctor();
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
-            var doctorwithduplicatenationalcode = DoctorFactory.CreateDoctor();
-            _dataContext.Manipulate(_ => _.Doctors.Add(doctorwithduplicatenationalcode));
+            var doctorwithduplicatenationalcode
+                = DoctorFactory.CreateDoctor();
+            _dataContext.Manipulate
+                (_ => _.Doctors.Add(doctorwithduplicatenationalcode));
 
             UpdateDoctorDto dto = GenerateUpdareDoctorDto();
             dto.NationalCode = doctor.NationalCode;
 
             Action Expected = () => _sut.Update(doctor.Id, dto);
-            Expected.Should().ThrowExactly<DoctorIsAlreadyExistException>();
+            Expected.Should()
+                .ThrowExactly<DoctorIsAlreadyExistException>();
         }
 
         [Fact]
