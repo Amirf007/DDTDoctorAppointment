@@ -70,6 +70,15 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
             Expected.LastName.Should().Be(patient.LastName);
         }
 
+        [Fact]
+        public void GetPatient_throw_PatientNotFoundException_when_patient_that_you_want_return_given_id_that_not_exist()
+        {
+            var dummyid = 102;
+
+            Action Expected = () => _sut.GetPatient(dummyid);
+            Expected.Should().ThrowExactly<PatientNotFoundException>();
+        }
+
         private static AddPatientDto GenerateAddPatientDto()
         {
             return new AddPatientDto
