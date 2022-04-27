@@ -5,6 +5,7 @@ using DDTDoctorAppointment.Persistence.EF;
 using DDTDoctorAppointment.Persistence.EF.Patients;
 using DDTDoctorAppointment.Services.Patients;
 using DDTDoctorAppointment.Services.Patients.Contracts;
+using DDTDoctorAppointment.Test.Tools.Patients;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -48,12 +49,7 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
         {
             AddPatientDto dto = GenerateAddPatientDto();
 
-            var patientwithduplicatenationalcode = new Patient
-            {
-                NationalCode = dto.NationalCode,
-                Name = "hgfd",
-                LastName = "vfdd"
-            };
+            var patientwithduplicatenationalcode = PatientFactory.CreatePatient();
             patientwithduplicatenationalcode.NationalCode = dto.NationalCode;
             _dataContext.Manipulate(_ => _.Patients.Add(patientwithduplicatenationalcode));
 
@@ -63,16 +59,15 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
         }
 
         [Fact]
-        public void GetDoctor_return_doctor_with_Id()
+        public void GetPatient_return_patient_with_Id()
         {
-            var doctor = DoctorFactory.CreateDoctor();
-            _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
+            var patient = PatientFactory.CreatePatient();
+            _dataContext.Manipulate(_ => _.Patients.Add(patient));
 
-            var Expected = _sut.GetDoctor(doctor.Id);
-            Expected.NationalCode.Should().Be(doctor.NationalCode);
-            Expected.Name.Should().Be(doctor.Name);
-            Expected.LastName.Should().Be(doctor.LastName);
-            Expected.Specialty.Should().Be(doctor.Specialty);
+            var Expected = _sut.GetPatient(patient.Id);
+            Expected.NationalCode.Should().Be(patient.NationalCode);
+            Expected.Name.Should().Be(patient.Name);
+            Expected.LastName.Should().Be(patient.LastName);
         }
 
         private static AddPatientDto GenerateAddPatientDto()

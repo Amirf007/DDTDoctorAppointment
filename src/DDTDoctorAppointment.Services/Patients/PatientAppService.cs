@@ -45,5 +45,10 @@ namespace DDTDoctorAppointment.Services.Patients
                 LastName = dto.LastName,
             };
         }
+
+        public GetPatientDto GetPatient(int id)
+        {
+            return _repository.GetPatient(id);
+        }
     }
 }
