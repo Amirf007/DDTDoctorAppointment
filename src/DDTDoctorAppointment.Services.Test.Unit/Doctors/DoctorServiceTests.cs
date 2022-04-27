@@ -5,6 +5,7 @@ using DDTDoctorAppointment.Persistence.EF;
 using DDTDoctorAppointment.Persistence.EF.Doctors;
 using DDTDoctorAppointment.Services.Doctors;
 using DDTDoctorAppointment.Services.Doctors.Contracts;
+using DDTDoctorAppointment.Test.Tools.Doctors;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Doctors
         [Fact]
         public void Update_update_doctor_properly()
         {
-            Doctor doctor = GenerateDoctor();
+            Doctor doctor = DoctorFactory.;
             _dataContext.Manipulate(_ => _.Doctors.Add(doctor));
 
             UpdateDoctorDto dto = GenerateUpdareDoctorDto();

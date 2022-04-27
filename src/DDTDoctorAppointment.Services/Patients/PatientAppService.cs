@@ -1,4 +1,6 @@
-﻿using DDTDoctorAppointment.Services.Patients.Contracts;
+﻿using DDDoctorAppointment.Infrastructure.Application;
+using DDTDoctorAppointment.Entities;
+using DDTDoctorAppointment.Services.Patients.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,33 @@ namespace DDTDoctorAppointment.Services.Patients
 {
     public class PatientAppService : PatientService
     {
+        private PatientRepository _repository;
+        private UnitOfWork _unitOfWork;
 
+        public PatientAppService(PatientRepository repository, UnitOfWork unitOfWork)
+        {
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
+
+        public void Add(AddPatientDto dto)
+        {
+            Patient patient = GeneratePatient(dto);
+
+            _repository.Add(patient);
+
+            _unitOfWork.Commit();
+
+        }
+
+        private static Patient GeneratePatient(AddPatientDto dto)
+        {
+            return new Patient
+            {
+                NationalCode = dto.NationalCode,
+                Name = dto.Name,
+                LastName = dto.LastName,
+            };
+        }
     }
 }

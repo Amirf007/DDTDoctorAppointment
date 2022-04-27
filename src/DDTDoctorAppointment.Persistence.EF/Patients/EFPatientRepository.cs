@@ -9,6 +9,11 @@ namespace DDTDoctorAppointment.Persistence.EF.Patients
 {
     public class EFPatientRepository : PatientRepository
     {
+        private EFDataContext dataContext;
 
+        public EFPatientRepository(EFDataContext dataContext)
+        {
+            this.dataContext = dataContext;
+        }
     }
 }
