@@ -79,6 +79,37 @@ namespace DDTDoctorAppointment.Services.Test.Unit.Patients
             Expected.Should().ThrowExactly<PatientNotFoundException>();
         }
 
+        [Fact]
+        public void Getall_return_all_doctors_properly()
+        {
+            GeneratePatientsInDataBase();
+
+            var Expected = _sut.Getall();
+            Expected.Should().HaveCount(2);
+            Expected.Should().Contain(_ => _.NationalCode == "548");
+            Expected.Should().Contain(_ => _.NationalCode == "231");
+        }
+
+        private void GeneratePatientsInDataBase()
+        {
+            IList<Patient> patients = new List<Patient>
+            {
+                new Patient
+                {
+                   NationalCode = "548",
+                   Name = "fdt",
+                   LastName = "rsrd"
+                },
+                new Patient
+                {
+                   NationalCode = "231",
+                   Name = "asz",
+                   LastName = "wwe"
+                }
+            };
+            _dataContext.Manipulate(_ => _.Patients.AddRange(patients));
+        }
+
         private static AddPatientDto GenerateAddPatientDto()
         {
             return new AddPatientDto
