@@ -32,5 +32,17 @@ namespace DDTDoctorAppointment.RestAPI.Controllers
         {
             return _service.Getall();
         }
+
+        [HttpPut("{id}")]
+        public void Update(int id,UpdatePatientDto dto)
+        {
+            _service.Update(id,dto);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            _service.Delete(id);
+        }
     }
 }
