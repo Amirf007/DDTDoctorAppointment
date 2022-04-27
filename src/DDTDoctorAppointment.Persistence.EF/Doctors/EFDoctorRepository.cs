@@ -32,5 +32,10 @@ namespace DDTDoctorAppointment.Persistence.EF.Doctors
             return _dataContext.Doctors
                 .Any(_ => _.NationalCode == nationalCode && _.Id != id);
         }
+
+        public void Remove(Doctor doctor)
+        {
+            _dataContext.Doctors.Remove(doctor);
+        }
     }
 }

@@ -54,11 +54,24 @@ namespace DDTDoctorAppointment.Services.Doctors
             {
                 throw new DoctorNotFoundException();
             }
+            else if (_repository.IsExistNationalCode(dto.NationalCode, doctor.Id))
+            {
+                throw new DoctorIsAlreadyExistException();
+            }
+           
+                doctor.Name = dto.Name;
+                doctor.LastName = dto.LastName;
+                doctor.NationalCode = dto.NationalCode;
+                doctor.Specialty = dto.Specialty;
 
-            doctor.Name = dto.Name;
-            doctor.LastName = dto.LastName;
-            doctor.NationalCode = dto.NationalCode;
-            doctor.Specialty = dto.Specialty;
+                _unitOfWork.Commit();
+        }
+
+        public void Delete(int id)
+        {
+            var doctor = _repository.Getbyid(id);
+
+            _repository.Remove(doctor);
 
             _unitOfWork.Commit();
         }
